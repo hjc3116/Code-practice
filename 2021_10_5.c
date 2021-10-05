@@ -9,12 +9,34 @@ int main()
 	int i = 0;
 	int fact = 1;
 
-	for (i = n; i >= 1; i--) {            ********** Ҳ�ɸ�Ϊ for( i = 2 ; i >=n ; i++){ fact *= i }
+	for (i = n; i >= 1; i--) {            ********** Ò²¿É¸ÄÎª for( i = 2 ; i >=n ; i++){ fact *= i }
 																	
 		fact *= i;
 	}
 	printf("%d!=%d", n, fact);
-	*/                                
+	*/   
+		/*                                ********素数判断
+	int x;
+	scanf_s("%d", &x);
+
+	int i;
+	int isPrime = 1;
+	for (i = 2; i < x; i++) {
+		if (x % i == 0) {
+		isPrime = 0;
+		}
+		break;
+	}
+	if (isPrime == 1) {
+		printf("是素数");
+	}
+	else {
+		printf("不是素数");
+	}
+	*/
+	return 0;
+}
+	
 
 	return 0;
 }

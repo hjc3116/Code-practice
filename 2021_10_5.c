@@ -36,5 +36,23 @@ int main()
 		printf("不是素数");
 	}
 	*/
+	
+	/*                                *******输出 0-100 中的素数
+	int y;
+	for (y = 1; y <= 100; y++) {
+
+		int i;
+		int isPrime = 1;
+		for (i = 2; i < y; i++) {
+			if (y % i == 0) {
+			isPrime = 0;
+			}
+			break;
+			}
+		if (isPrime == 1) {
+		printf("%d\n",y);
+		}
+	}
+	*/
 	return 0;
 }

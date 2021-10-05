@@ -2,20 +2,22 @@
 
 int main()
 {
-	/*
+	/*                               *********n！阶乘
 	int n = 0;
 	scanf_s("%d", &n);
 
 	int i = 0;
 	int fact = 1;
 
-	for (i = n; i >= 1; i--) {            ********** Ò²¿É¸ÄÎª for( i = 2 ; i >=n ; i++){ fact *= i }
+	for (i = n; i >= 1; i--) {            *也可改为 for( i = 2 ; i >=n ; i++){ fact *= i }
 																	
 		fact *= i;
 	}
 	printf("%d!=%d", n, fact);
 	*/   
-		/*                                ********素数判断
+	
+	
+	/*                                ********素数判断
 	int x;
 	scanf_s("%d", &x);
 
@@ -36,8 +38,3 @@ int main()
 	*/
 	return 0;
 }
-	
-
-	return 0;
-}
-

@@ -1,79 +1,61 @@
 package lydx.bao;
 
 public class test {
-/** 迷宫 二维数组*/
-public void  map01 (){
-  int [][] maps = new int [8][7];
-  for (int i = 0; i < 7; i++){
-    maps[0][i] = 1;
-    maps[7][i] = 1;
-  }
-  for(int i = 0; i < 8; i++){
-    maps[i][0] = 1;
-    maps[i][6] = 1;
-  }
-  maps[3][1] = 1;
-  maps[3][2] = 1;
+  public static void main(String[] args) {
+    fangfa01 t = new fangfa01();
+    int sum = t.calculate(3,4);
+    System.out.println(sum);
+    System.out.println(t.calculate(1,2,3));
+    System.out.println(t.calculate(1.1,2));
+    System.out.println(t.calculate(1,2.2));
+    //输出sums结果
+    System.out.println(t.sum(1,5,7,8,4,4,9));
+    int arr[] = {1,2,3,4};
+    System.out.println(t.sum(0,arr));
 
-  System.out.println("当前地图情况");
-  for(int i = 0; i <maps.length; i++){
-    for(int j = 0; j <maps[i].length; j++){
-      System.out.print(maps[i][j] + " ");
-    }
-    System.out.println();
+    System.out.println(t.xc("xiaoming",80.2,80.2));
   }
-  fangfa s = new fangfa();
-  s.findway(maps,1,1);
-  System.out.println("\n找路情况");
-
-  for(int i = 0; i <maps.length; i++){
-    for(int j = 0; j <maps[i].length; j++){
-      System.out.print(maps[i][j] + " ");
-    }
-    System.out.println();
-  }
-
-  int sum01 = 0;
-  //输出所走步数，以便比较各策略效率
-  sum01 = s.p;
-  System.out.println(sum01);
 }
-/**1.findway方法就是专内来找出迷宫的路径
- * 2．如果找到，就返回true ,否则返尚false
- * 3. map就是二维数组，即表示迷宫
- * 4. i,j就是老鼠的位置，初始化的位置为(1,1)
- * 5．因为我们是递归的找路，所以我先规定map数组的各个值的含义
- 0表示可以走  1表示障碍物  2已经走过，表示可以走  3表示走过，但是走不通是死路
- * 6.当map【6】【5】 = 2说明找到通路，可以结束，否则继续找
- * 7. 先确定老鼠找路策略 下->右->上->左
- */
+class fangfa01 {
+  //下面4个方法构成了重载
+  //两个整数的和
+  public int calculate(int n1, int n2) {
+    return (n1 + n2);
+  }
 
-int p = 0;
-//计数变量 在类中设置，注意作用域
-public boolean findway(int[][]map , int i, int j) {
+  //一个浮点一个整数的和
+  public double calculate(double n1, int n2) {
+    return (n1 + n2);
+  }
 
-  if (map[6][5] == 2) {
+  //一个整数一个浮点的和
+  public double calculate(int n1, double n2) {
+    return (n1 + n2);
+  }
 
-    return true;
-  } else {
-    if (map[i][j] == 0) {
-      map[i][j] = 2;
-      p++;
-      if (findway(map, i + 1, j)) {
-        return true;
-      } else if (findway(map, i, j + 1)) {
-        return true;
-      } else if (findway(map, i - 1, j)) {
-        return true;
-      } else if (findway(map, i, j - 1)) {
-        return true;
-      } else {
-        map[i][j] = 3;
-        return false;
+  //3个整数的和
+  public int calculate(int n1, int n2, int n3) {
+    return (n1 + n2 + n3);
+  }
+
+  //int...  表示 接收的是可变参数，类型是INT，可以接受0-多个变量
+  //形参列表中，可变参数必须放在最后
+  public int sum(int n1,int ... sums){
+    //sums可以当作一个数组
+    int res = 0;
+    for(int i = 0; i < sums.length; i++){
+      res += sums[i];
+    }
+  return res;
+  }
+
+  public String  xc(String a, double ... cj){
+      double sum = 0;
+      for(int i = 0; i < cj.length; i++){
+        sum += cj[i];
       }
-    }else{
-      return false;
-    }
+      return a + "有" + cj.length + "课程的成绩总分为" + sum;
   }
-}
+  
+
 }
